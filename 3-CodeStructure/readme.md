@@ -20,7 +20,7 @@ Other times people use comments to create 'dividers' or sections of the code, if
 
 ### Misleading Comments
 
-Sometimes people write comments with wrong or confusing information/
+Sometimes people write comments with wrong or confusing information.
 
 ```
 insertData(data:any){
