@@ -57,3 +57,37 @@ Solutions to write cleaner code:
 Rules & Concepts
 Patterns & Principles
 Test-Driven Development
+
+### Some Different Concepts that are Related
+
+**Patterns & Principles:** Write code which is **maintainable and extensible**.
+
+**Clean Code:** **Write** code which is **readable & easy to understand.** We focus on single problems/files.
+
+**Clean Architecture:** How you structure your project, how you separate your entities. **Where** to write which code. We focus on the project as a whole.
+
+Both concepts are related. Off course you should follow code patterns and principles, but write them in a clean way.
+
+### Clean Code is Written Over Time !
+
+Of course you want to write the best and cleaner code right from the _beginning_ or your project. But you _will always find_ ways to improve your code later on.
+
+As your project _evolves and changes_, then your code _will need to change_.
+
+**Question old code and refactor a lot !.**
+
+Refactoring is totally normal flow, you start writing new features, and then after the complexity grows, you find cleaner and clever ways to write code.
+
+Writing clean code is an **iterative process**, and you'll always find better ways to do things.
+
+> You'll save time tomorrow by refactoring today.
+
+## Clean Code vs Quick Code
+
+If you write quick code under pressure, without clean code guidelines, you'll be able to deliver a lot of code and new features at the beginning, but then you'll start investing all of your time finding and fixing bugs in a codebase that is hard to read and maintain, so you'll slow down your delivery time and your project is not going to last too much.
+
+On the other hand, if you start writing clean code, at the beginning the process is going to be slow compared to quick code, but adding new features will be always easier, you'll probably have less bugs, and if you need to solve bugs it is going to be easier to find the root causes of the problems. So your project will be easy to maintain and will have a longer life.
+
+</br>
+
+![Clean vs Dirty](./clean-vs-quick.png)
