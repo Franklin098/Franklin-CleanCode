@@ -84,3 +84,119 @@ Python documentation comment example:
 Optional params: a,b,c
 """
 ```
+
+# Code Formatting
+
+Code Formatting improves readability & transporting meaning.
+
+Vertical Formatting:
+
+- Space between lines
+- Grouping of code
+
+Horizontal Formatting:
+
+- Indentation
+- Space between code
+- Line Width
+
+Formatting rules **differ between languages**.
+
+Follow **language-specific** conventions and guidelines.
+
+## Vertical Formatting
+
+Your code should be readable **like and essay or like a book**. Top to bottom **without too many "jumps"**.
+
+Think about it: You would not like to read a book that start jumping back and for between pages and paragraphs, it would be hard to read, confusing, annoying.
+
+You should have a smooth reading code.
+
+Some tips:
+
+- Consider splitting files with multiple concepts, multiple files.
+
+- Different concepts "areas" should be separated by blank spaces.
+
+- Similar concepts should not be separated by black spaces.
+
+- Always try to add **related objects together**. If you call a function, try add the definition of that function closely.
+
+- Ordering always differ between languages. For example public methods should be before private methods in Java.
+
+Bad:
+
+```
+import x;
+import y;
+function createStorage(){
+    ....
+}
+function connect(){
+    ...
+}
+function other(){
+
+}
+```
+
+Good:
+
+```
+import x;
+import y;
+
+function createStorage(){
+    ....
+}
+
+function connect(){
+    ...
+}
+
+function other(){
+
+}
+```
+
+## Horizontal Formatting
+
+The lines of code should be readable without horizontal scrolling.
+
+Avoid very long sentences.
+
+Use indentation, even if it is not technically required.
+
+Break long statements into shorter parts if it is not technically necessary.
+
+Bad:
+
+```
+function hello(){
+    callAPI({date:'2022-10-11 T23:30:000 Z9', value: calculatedValue1 + calculatedValue2});
+}
+```
+
+Good:
+
+```
+function hello(){
+    const date = '2022-10-11 T23:30:000 Z9';
+    const value = calculatedValue1 + calculatedValue2;
+    callAPI({date,value});
+}
+```
+
+Use clear but not **unreadable and too long names**.
+
+Bad:
+
+```
+const storagePathForStoringImagesInATemporaryFolder = path.join(__dirname,'temp','images');
+```
+
+Good:
+
+```
+const tempImagesFolder = path.join(__dirname,'temp','images');
+```
