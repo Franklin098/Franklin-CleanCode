@@ -322,3 +322,113 @@ If you add low level code, then you need to read and **interpret** the different
 Instead, if you have just high level code in the correct place, your code is easier to read like a clear and understandable book. You just need to "read the steps of the recipe".
 
 Figuring out the correct levels of abstraction comes with **experience**.
+
+## Keep Functions Short
+
+**You should think about splitting a function in multiple pieces if you find code that works on the same functionality.**
+
+**Extract code that requires more interpretation that the surrounding code.**
+
+Requires more interpretation:
+
+```
+if(!email.includes('@)){
+    saveNewUser(email)
+}
+```
+
+Clear code:
+
+```
+if(isValid(email)){
+    saveNewUser(email)
+}
+```
+
+## Stay Dry - Don't Repeat Your Self
+
+Rule: **Reusability matters**.
+
+Simply try to don't write the same code more than once.
+
+If you repeat your self, if you want to change that code you'll need to change things in every place.
+
+Signs of code which is not DRY:
+
+- You find yourself copy & pasting code
+- You find that when applying a change, you need to do it in multiple places.
+
+## Don't Over Do - Avoid Useless Extractions
+
+You always should use your **common sense** and think if splitting a function makes sense.
+
+If you split a lot your code, you could start being too granular.
+
+Don't split if:
+
+- You are just renaming the operation.
+- Finding the new function will take longer than reading the extracted code.
+- Can't produce a reasonable name for the extracted function.
+
+# Understanding & Avoiding Unexpected Side Effects.
+
+## Try Keeping Functions Pure
+
+A pure function is a function that for the same input, it generates the same output.
+
+```
+// A pure function is 100% predictable
+
+function generateId(userName){
+    const id = 'id_' + userName;
+    return id;
+}
+```
+
+Impure functions are not bad, but they are less predicable. You should only go for impure functions if it is the only way.
+
+```
+// Not a pure function, it is unpredictable
+
+function generateId(userName){
+    const id = userName + Math.random().toString();
+    return id;
+}
+```
+
+**Pure functions should not have side effects**. Specially if you are following a functional programming approach.
+
+What is a side effect ?
+
+A side effect is an operation which does not just act on a function inputs and change the function output, but which instead **changes the overall system/program state.**
+
+```
+function createUser(email,password){
+    const user = new User(email,password);
+
+    startSession(user); // probably changes the overall state of our application
+    // you don't expect that while calling a 'createUser' function
+
+    return user;
+}
+```
+
+Side effects are not automatically bad. But **unexpected** side effects should be avoided.
+
+The **name** of a function should **signal** or **imply** that a side effect is likely to occur.
+
+# Unit Testing Helps !
+
+You should be testing your code.
+
+Unit testing helps you to write not just error-free code, but also **clean code**.
+
+The main idea is:
+
+**Can you easily test a function?**
+
+If the answer is Yes -> Then probably have clean code, you are avoiding big functions with side effects.
+
+If no -> You must consider splitting your function in smaller pieces that are easier to test.
+
+When writing unit test you'll find out what should be split and extracted, since you'll want to write as much test as possible in an easier way.
